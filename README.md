@@ -1,6 +1,5 @@
 # Pipex
-A school project of 42 coding school
-To learn about handling pipes, redirections and processes.
+A school project of 42 coding school: learn about handling pipes, redirections and processes.
 
 
 
@@ -10,13 +9,16 @@ To learn about handling pipes, redirections and processes.
 ### Background Information
 
  #### Pipes |
+ 
  In bash the output of a command can be piped to another command: 
  	
   	cmd1 | cmd2
  This means that the result of cmd1 is not displayed in the terminal (i.e. written to STDOUT) but directed to
  cmd2 that takes it as input. 
+ 
 
  #### Redirections < > << >>
+ 
  In bash, you can also provide a file as input to a command and/ or put the result of a command (or command chain)
  into a file. You redirect the input and/ or output. By default, the input is STDIN (i.e. what you type into your terminal)
  and the output is STDOUT (i.e. what is displayed on the screen). In your C program you can do this with the help of the
@@ -26,8 +28,13 @@ To learn about handling pipes, redirections and processes.
 
 ### Rules:
 
- * user input format: ./pipex file1 cmd1 cmd2 file2
-     or:              ./pipex here_doc LIMITER cmd1 cmd2 file
+ * user input format:
+
+   		 ./pipex file1 cmd1 cmd2 file2
+   
+     or:
+
+   		./pipex here_doc LIMITER cmd1 cmd2 file
  * allowed functions: open, close, perror, exit, read, write, dup, dup2, execve, fork, pipe, wait, waitpid, malloc, free, strerror, access, unlink
    
 
