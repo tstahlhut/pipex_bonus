@@ -4,7 +4,7 @@
 
 
 # Description
- Handling pipes and redirections.
+ Pipex, together with its bonus part, mimicks the behaviour of pipes and redirections in a shell.
 
 
  
