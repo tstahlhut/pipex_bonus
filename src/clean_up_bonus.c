@@ -12,6 +12,9 @@
 
 #include "pipex_bonus.h"
 
+/* close_all_fd: This function closes all file descriptors of the pipes (fd) and
+	the infiel (f1) and outfile (f2). */
+
 void	close_all_fd(t_data *data)
 {
 	int	i;
@@ -34,6 +37,8 @@ void	close_all_fd(t_data *data)
 		error_check(close(data->f2), "close failed", data);
 }
 
+/* ft_free_int: This function frees an array of pointers to int. */
+
 void	ft_free_int(t_data *data)
 {
 	int	i;
@@ -47,6 +52,8 @@ void	ft_free_int(t_data *data)
 		data->fd = NULL;
 	}
 }
+
+/* ft_free: This function frees an array of pointers to strings. */
 
 void	ft_free(char **str)
 {
@@ -65,6 +72,11 @@ void	ft_free(char **str)
 		str = NULL;
 	}
 }
+
+/* ft_exit: This function garantuees a clean exit of the program in case
+	of error and success. All allocated memory is freed, all file descriptors
+	closed, all pointers set to NULL and if a "here_doc" file was created, it
+	will be unlinked. */
 
 void	ft_exit(t_data *data)
 {
