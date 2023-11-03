@@ -26,7 +26,7 @@ A school project of 42 coding school: learn about handling pipes, redirections a
 
  	< infile command > outfile
 
-### Rules:
+### Subject Rules:
 
  * user input format:
 
