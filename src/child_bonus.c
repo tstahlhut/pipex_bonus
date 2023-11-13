@@ -12,8 +12,6 @@
 
 #include "pipex_bonus.h"
 
-/* close_fd: This function closes all file descriptors that are not used. */
-
 void	close_fd(int x, t_data *data)
 {
 	int	i;
@@ -41,19 +39,6 @@ void	close_fd(int x, t_data *data)
 		i++;
 	}
 }
-
-/* child_process: The command is executed in the child process.
-	First, the ends of the pipes (fd_in & fd_out) are put to the right
-	file descriptors. If it is the first command it gets its input from 
-	the infile (data->f1), else from the command before (n - 1). And the last
-	command writes its output to the outfile (data->f2). 
-	All other file descriptors are closed in close_fd().
-	The input and output is redirected with the help of dup2() and 
-	the duplicated file descriptors closed. 
-	With the help of execve the command is executed. If it is executed success-
-	fully, the child process will not return and execute the lines afterwards.
-	In case of an error, however, the output is again set to stdout, the fd closed
-	and the error function with errno called. */
 
 void	child_process(t_data *data, int n)
 {

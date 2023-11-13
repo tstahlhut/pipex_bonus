@@ -12,10 +12,7 @@
 
 #include "pipex_bonus.h"
 
-/* input_check: The user input is checked.
-	In this case, it is sufficient to only check the number of arguments,
-	which should be at least 4: infile, cmd1, cmd2, outfile.
-	I set the max. amount of commands to an arbitrary 20. This may be changed.*/
+/* Check user input for errors or misuse */
 
 void	input_check(int argc)
 {
@@ -33,8 +30,6 @@ void	input_check(int argc)
 	return ;
 }
 
-/* init_zero: All variables are set to 0 or NULL. */
-
 void	init_zero(t_data *data)
 {
 	data->f1 = 0;
@@ -47,15 +42,9 @@ void	init_zero(t_data *data)
 	data->fd = NULL;
 	data->pid = NULL;
 	data->child_status = NULL;
+	data->here_doc = 0;
 	return ;
 }
-
-/* ft_init: For the variables in the data struct the necessary memory is allocated
- 	and variables are set. 
- 	The number of processes equals argc - 3 (program name, infile, outfile)
- 	or one less (here_doc). The same is the case for the number of file
- 	descriptors,the number of process IDs and of exit statuses for the 
- 	child processes (child_status). */
 
 void	ft_init(t_data *data, int argc)
 {
