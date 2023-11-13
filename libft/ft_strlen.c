@@ -6,7 +6,7 @@
 /*   By: tstahlhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 13:27:32 by tstahlhu          #+#    #+#             */
-/*   Updated: 2023/09/21 13:01:56 by tstahlhu         ###   ########.fr       */
+/*   Updated: 2023/11/13 09:52:54 by tstahlhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	while (s[i] != '\0')
 		i++;
 	return (i);
