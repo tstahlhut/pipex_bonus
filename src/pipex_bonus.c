@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   pipex_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tstahlhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 12:47:06 by tstahlhu          #+#    #+#             */
-/*   Updated: 2023/09/25 15:52:25 by tstahlhu         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:16:36 by tstahlhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	pipex(t_data *data, int i)
 		error_check(data->pid[i] = fork(), "fork process", data);
 		if (data->pid[i] == 0)
 		{
-			if (!data->cmd[i])
+			if (!data->cmd[i] | !data->cmd[i][1])
 			{
 				close_all_fd(data);
 				ft_exit(data);
