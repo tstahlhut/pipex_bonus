@@ -12,6 +12,12 @@
 
 #include "pipex_bonus.h"
 
+/* here_doc: This function mimics the behaviour of "<< LIMITER" in a shell.
+	A temporary file called "here_doc" is opened. With the help of the function
+	get_next_line the user input is read line by line into a buffer and written
+	into the here_doc file until a LIMITER (set by the user) is hit. After 
+	its creation the here_doc file is treated the same as the infile (f1).*/
+
 void	here_doc(t_data *data, char *limiter)
 {
 	char	*buf;

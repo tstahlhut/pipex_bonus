@@ -12,6 +12,10 @@
 
 #include "pipex_bonus.h"
 
+/* get_path_line: This function searches in the environment variable
+for the PATH variable and returns its contents. If the PATH variable
+is empty, it returns NULL and a Warning message is printed. */
+
 char	*get_path_line(char **envp)
 {
 	int	i;
@@ -23,6 +27,14 @@ char	*get_path_line(char **envp)
 		ft_printf("No path found in environment variable.");
 	return (envp[i]);
 }
+
+/* find_path: This functions aims at finding the right absolute path 
+	for a command given. 
+	First, all possible paths provided in the PATH variable (envp) are stored
+	in data.dir. Next, all paths are tested with the help of the access function.
+	As soon as the access function returns 0, i.e. a valid path was found,
+	the loop is exited. The right path is stored in data.path. If no path at all
+	is found to match the command, an error message is printed. */
 
 void	find_path(char **envp, char *cmd, t_data *data)
 {
@@ -52,6 +64,19 @@ void	find_path(char **envp, char *cmd, t_data *data)
 	if (x == 1)
 		ft_printf("pipex: %s: command not found\n", cmd);
 }
+
+/* format_commands: This function formats the commands and its
+	possible arguments to fit the requirements of execve (array of
+	pointers, array[0]= path/command, array[n] = argument(n)).
+	First the string containing the command and arguments (0 to n)
+	is split up and the command without its arguments is stored in
+	temp_cmd. With the help of the access function it is checked if
+	the command is exists. Either the user already provided the right
+	absolute path or it is checked if the right path can be found in the 
+	PATH variable (env). If no path is found the function returns NULL, 
+	else it returns an array of pointers containing the command 
+	(with its absolute path) and its arguments. In both cases,
+	the program keeps on executing (same behaviour as bash).*/
 
 char	**format_commands(char *cmd, char **envp, t_data *data)
 {
